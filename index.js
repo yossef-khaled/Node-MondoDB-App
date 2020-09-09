@@ -14,13 +14,13 @@ mongoClient.connect(url, (err, client) => {
     dishesCollection.insertOne({"name": "Uthappizza", "description":"A delecious dish"}, (err, result) => {
         assert.equal(err, null);
         
-        console.log('After insertion : \n');
+        console.log('After insertion :');
         console.log(result.ops);
 
         dishesCollection.find({}).toArray((err, docs) => {
             assert.equal(err, null);
 
-            console.log('Data found from the server is : \n');
+            console.log('Data found from the server is :');
             console.log(docs);
 
             db.dropCollection('dishes', (err, result) => {
